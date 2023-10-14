@@ -74,4 +74,30 @@ body {
     /* siraberu */
     outline: none;
     width: 100%;
-}
+    height: 14rem;
+    /* ブラウザーが適切なマージンを選択 */
+    margin: auto;
+    /*  要素のサイズ変更不可 */
+    resize: none;
+    /* 要素内部の空間 */
+    padding: 0.5rem 1rem;
+    /* 枠の4隅を丸く */
+    border-radius: 0.5rem;
+    font-size: 1rem; 
+} 
+
+
+/* フォーカスされている時に入力欄の枠の色が変わる */
+.answer:focus {
+    border-color: rgb(217, 246, 1);
+  }
+
+  /* 以下ddjsで設定した内容に対する設定 */
+.correct {
+    color: green;
+  }
+  
+.incorrect {
+    color: red;
+    text-decoration: underline;
+  }
