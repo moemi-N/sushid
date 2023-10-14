@@ -44,7 +44,7 @@ body {
     max-width: 90%;
     /* /* offset-x | offset-y | blur-radius | spread-radius | color */ */
     box-shadow: 5px 1px 1px  rgb(234, 239, 245);
-    font:rgb(100,100,100);
+    color:rgba(234, 241, 241, 0.942);
 }
 
 /* テキストエリアの設定 */
@@ -61,4 +61,17 @@ body {
     top: 2rem;
     font-size: 5rem;
     font-weight: bold;
+    color: rgb(217, 246, 1);
+}
+.type-display {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.answer {
+    background: transparent;
+    color: aqua;
+    border:2px rgb(300, 300, 300) solid;
+    /* siraberu */
+    outline: none;
+    width: 100%;
 }
