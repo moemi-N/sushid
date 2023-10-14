@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Antique&display=swap");
+
+/* 全要素に対応させる */
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    /* 画面いっぱいの高さにする。 */
+    height: 100vh;
+   /* 直下の要素が並列 */
+    display: flex;
+    /* 縦方向中央に*/
+    align-items: center;
+    /* 横方向画面中央に */
+    justify-content: center;
+    /* ブラウザをスクロール出来ないようにする */
+    overflow: hidden;
+
+    /* 背景色の指定 */
+    /* background: ; */
+    background: linear-gradient(
+        to left top,
+        rgb(88, 159, 231),
+        rgb(50, 50, 51));
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.content {
+    /* textarea内には反映されていない */
+
+    background-color: rgb(50, 50, 51);
+    font-size: 2.4rem;
+    /* フォントの太さ */
+    font-weight: 600;
+    /* 文字と枠の間にスペースが生まれた */
+    padding :    4rem ;
+    /* 枠の4隅が丸くなった。 */
+    border-radius: 0.5rem;
+    width: 1000px;
+    /* 要素の最小高さ設定 */
+    min-height: 600px;
+    max-width: 90%;
+    /* /* offset-x | offset-y | blur-radius | spread-radius | color */ */
+    box-shadow: 5px 1px 1px  rgb(234, 239, 245);
+}
+
+/* テキストエリアの設定 */
+.content .answer {
+    /* 空間 */
+    margin-top: 4rem;
+    font-size:  3rem;
+}
+
+/* タイマーの設定 */
+.timer {
+    /* ページの左隅からどれだけ離れているかの絶対位置で配置を決める。 */
+    position: absolute;
+    top: 2rem;
+    font-size: 5rem;
+    font-weight: bold;
+}
