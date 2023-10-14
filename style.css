@@ -25,7 +25,7 @@ body {
         rgb(88, 159, 231),
         rgb(50, 50, 51));
 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .content {
     /* textarea内には反映されていない */
@@ -44,6 +44,7 @@ body {
     max-width: 90%;
     /* /* offset-x | offset-y | blur-radius | spread-radius | color */ */
     box-shadow: 5px 1px 1px  rgb(234, 239, 245);
+    font:rgb(100,100,100);
 }
 
 /* テキストエリアの設定 */
