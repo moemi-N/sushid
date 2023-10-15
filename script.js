@@ -8,9 +8,19 @@ const RANDOM_SENTENCE_URL_API = "https://api.quotable.io/random"
 function GetRsentence(){
     // 非同期通信でリクエストを発行、そのレスポンスを取得
         // プロミス状態の後の状態
+        // fetchでデータを取ると、返り値としてPromiseを返す
     return fetch(RANDOM_SENTENCE_URL_API)
     .then((response) => response.json()) //変数responseをjson形式に変更
-    .then((data) => console.log(data.content));//data:プロミス後のAPIの中のcontent
+    .then((data) => console.log(data.content));//dataにプロミス後のAPIの中のcontentをいれる
+    
 }
 
-GetRsentence();
+// ランダムな文章を取得してtype-displayに表示
+function RenderNsentence(){
+    const sentence = GetRsentence();
+    console.log(sentence);
+}
+
+RenderNsentence();
+
+
