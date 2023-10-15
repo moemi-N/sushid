@@ -5,6 +5,8 @@ const typedisplay = document.getElementById("type-display");
 // 入力済のテキストを消すために、idを取得しておく。
 const typeInput = document.getElementById("inputanswer");
 
+const timer = document.getElementById("timer");
+
 // 一文字ごとの正誤判定を行う
 // addEventListener:ターゲットに特定のイベントが配信されるたびに呼び出される関数を設定
 typeInput.addEventListener("input", () => {
@@ -73,8 +75,27 @@ async function RenderNsentence(){
 
     // テキストボックスの中身を消す。
     typeInput.innerText ="";
+
+    // RenderNsentenceが読まれたらタイマーを起動する。
+    StartTimer();
 }
 RenderNsentence();
+
+let startTime;
+let originTime = 30;
+function StartTimer(){
+    timer.innerText = originTime;
+    startTime = new Date;
+    // console.log(startTime);
+    setInterval(() =>{
+        timer.innerText = originTime - getTimerTime();
+    },1000);
+
+function getTimerTime(){
+    return Math.floor((new Date() - startTime)/1000);
+}
+    
+}
 
 
 
