@@ -16,8 +16,9 @@ function GetRsentence(){
 }
 
 // ランダムな文章を取得してtype-displayに表示
-function RenderNsentence(){
-    const sentence = GetRsentence();
+// GetRsentenceの非同期処理を待機させるために、asyncとawait追加
+async function RenderNsentence(){
+    const sentence = await GetRsentence();
     console.log(sentence);
 }
 
