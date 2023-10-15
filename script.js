@@ -79,25 +79,28 @@ async function RenderNsentence(){
     // RenderNsentenceが読まれたらタイマーを起動する。
     StartTimer();
 }
-RenderNsentence();
+
 
 let startTime;
-let originTime = 30;
+let originTime = 10;
 function StartTimer(){
-    timer.innerText = originTime;
-    startTime = new Date;
+    timer.innerText = originTime; //表示時間の初期値
+    startTime = new Date; //開始時刻の取得
     // console.log(startTime);
     setInterval(() =>{
         timer.innerText = originTime - getTimerTime();
-    },1000);
-
+        if(timer.innerText<=0)TimeUp();
+    },1000);//表示時間＝制限時間-経過時間　1秒後
+}
 function getTimerTime(){
     return Math.floor((new Date() - startTime)/1000);
 }
     
+function TimeUp(){
+    RenderNsentence();
 }
 
-
+RenderNsentence();
 
 // 持ってきた文章を分解して、１文字ずつspanタグを設定
 // 正誤判定に利用
