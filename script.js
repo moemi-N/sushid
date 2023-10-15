@@ -2,6 +2,33 @@
 const RANDOM_SENTENCE_URL_API = "https://api.quotable.io/random"
 // ドキュメントを表示させたいidを取得しておく
 const typedisplay = document.getElementById("type-display");
+// 入力済のテキストを消すために、idを取得しておく。
+const typeInput = document.getElementById("inputanswer");
+
+// 一文字ごとの正誤判定を行う
+// addEventListener:ターゲットに特定のイベントが配信されるたびに呼び出される関数を設定
+typeInput.addEventListener("input", () => {
+    // 判定するための比較する式を描く
+    // typedisplayの中の参照要素全て持ってくる
+    const sentenceArray = typedisplay.querySelectorAll("span");
+    // console.log(sentenceArray);
+    // 比較したいテキストボックス内の文字も一つずつ持ってくる。
+    // valueを使うことで文字を持ってくる。splitで１つ1つに分ける。
+    // inputするたびに文字が１つ１つ追加される。
+    const arrayValue = typeInput.value.split("");
+    console.log(arrayValue);
+
+    // sentenceArrayとarraayValueを１つずつ比較⇒色付ける
+    sentenceArray.forEach((characterSpan, index) =>{
+        if(characterSpan.innerText == arrayValue[index]){
+        characterSpan.classList.add("correct");
+        characterSpan.classList.remove("incorrect");           
+        }else{
+            characterSpan.classList.add("incorrect");
+            characterSpan.classList.remove("correct");
+        }
+    })
+});
 
 // これからリンク先のcontentの中身を取得したい/ 
 // 非同期処理でランダムな文章取得
@@ -38,12 +65,11 @@ async function RenderNsentence(){
         // console.log(characterSpan);
         // type-displayの中身がspanタグで分けられた！
         typedisplay.appendChild(characterSpan);
-        //  正誤で色をつけたい。正解時のクラス追加
-        characterSpan.classList.add("correct");
+        
     });
 
     // テキストボックスの中身を消す。
-    
+    typeInput.innerText ="";
 }
 RenderNsentence();
 
