@@ -31,11 +31,14 @@ async function RenderNsentence(){
     
     // forEach()与えられた関数を配列の各要素に大して１度ずつ実行
     letter.forEach(character => {
-        // chatacterSpanの中にspanを配列の数だけいれる
+        // createElementでspanタグを自動生成
         const characterSpan = document.createElement("span");
         // 生成したspanタグの中に
         characterSpan.innerText = character;
-        console.log(characterSpan);
+        // console.log(characterSpan);
+        // type-displayの中身がspanタグで分けられた！
+        typedisplay.appendChild(characterSpan);
+        
     });
 }
 RenderNsentence();
