@@ -21,12 +21,30 @@ function GetRsentence(){
 // GetRsentenceの非同期処理を待機させるために、asyncとawait追加
 async function RenderNsentence(){
     const sentence = await GetRsentence();
-    console.log(sentence);
+    // console.log(sentence);
 
 // idにテキスト表示させる。
     typedisplay.innerText = sentence;
+// 文章を１文字ずつ分解してspanタグを生成
+// splitで文章を１文字ずつ分解⇒配列に
+    let letter = sentence.split("");
+    
+    // forEach()与えられた関数を配列の各要素に大して１度ずつ実行
+    letter.forEach(character => {
+        // chatacterSpanの中にspanを配列の数だけいれる
+        const characterSpan = document.createElement("span");
+        // 生成したspanタグの中に
+        characterSpan.innerText = character;
+        console.log(characterSpan);
+    });
 }
-
 RenderNsentence();
+
+
+
+// 持ってきた文章を分解して、１文字ずつspanタグを設定
+// 正誤判定に利用
+
+
 
 
