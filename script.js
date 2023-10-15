@@ -24,7 +24,7 @@ async function RenderNsentence(){
     // console.log(sentence);
 
 // idにテキスト表示させる。
-    typedisplay.innerText = sentence;
+    typedisplay.innerText = "";
 // 文章を１文字ずつ分解してspanタグを生成
 // splitで文章を１文字ずつ分解⇒配列に
     let letter = sentence.split("");
@@ -38,8 +38,12 @@ async function RenderNsentence(){
         // console.log(characterSpan);
         // type-displayの中身がspanタグで分けられた！
         typedisplay.appendChild(characterSpan);
-        
+        //  正誤で色をつけたい。正解時のクラス追加
+        characterSpan.classList.add("correct");
     });
+
+    // テキストボックスの中身を消す。
+    
 }
 RenderNsentence();
 
