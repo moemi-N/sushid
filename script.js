@@ -1,5 +1,7 @@
 // /quatable.ioのAPIを呼び出す。
 const RANDOM_SENTENCE_URL_API = "https://api.quotable.io/random"
+// ドキュメントを表示させたいidを取得しておく
+const typedisplay = document.getElementById("type-display");
 
 // これからリンク先のcontentの中身を取得したい/ 
 // 非同期処理でランダムな文章取得
@@ -15,11 +17,14 @@ function GetRsentence(){
     
 }
 
-// ランダムな文章を取得してtype-displayに表示
+// ランダムな文章を取得してtype-displayに表示させる
 // GetRsentenceの非同期処理を待機させるために、asyncとawait追加
 async function RenderNsentence(){
     const sentence = await GetRsentence();
     console.log(sentence);
+
+// idにテキスト表示させる。
+    typedisplay.innerText = sentence;
 }
 
 RenderNsentence();
