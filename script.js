@@ -7,9 +7,21 @@ const typeInput = document.getElementById("inputanswer");
 
 const timer = document.getElementById("timer");
 
+// オーディオの追加
+const typeSound = new Audio("./audio/typing-sound.mp3");
+const cSound = new Audio("./audio/correct.mp3");
+const wSound = new Audio("./audio/wrong.mp3");
+
+
 // 一文字ごとの正誤判定を行う
 // addEventListener:ターゲットに特定のイベントが配信されるたびに呼び出される関数を設定
 typeInput.addEventListener("input", () => {
+
+    // タイプ音の追加
+    typeSound.play();
+    // 音の遅れを失くす。
+    typeSound.currentTime = 0;
+
     // 判定するための比較する式を描く
     // typedisplayの中の参照要素全て持ってくる
     const sentenceArray = typedisplay.querySelectorAll("span");
@@ -18,21 +30,39 @@ typeInput.addEventListener("input", () => {
     // valueを使うことで文字を持ってくる。splitで１つ1つに分ける。
     // inputするたびに文字が１つ１つ追加される。
     const arrayValue = typeInput.value.split("");
-    console.log(arrayValue);
+    // console.log(arrayValue);
 
+    // 全問正解のときのサウンドをつけるために定義
+    let correct =true;
     // sentenceArrayとarraayValueを１つずつ比較⇒色付ける
+    // 入力ごとにcorrectの判定も行われるので、全問正解ならcorrect =trueとなる。
     sentenceArray.forEach((characterSpan, index) =>{
         if ((arrayValue[index] == null)){
             characterSpan.classList.remove("incorrect"); 
             characterSpan.classList.remove("correct");
+            // 未入力のものがある状態をfalseにする。
+            correct = false;
         }else if (characterSpan.innerText == arrayValue[index]){
             characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");           
+            characterSpan.classList.remove("incorrect");
+                      
         } else {
             characterSpan.classList.add("incorrect");
             characterSpan.classList.remove("correct");
+            wSound.play();
+            wSound.volume =0.1;
+            wSound.currentTime = 0;
+
+            correct = false;
         }
-    })
+    });
+    if (correct == true){
+        // 全問正解なら次の問題に移る。
+       
+        cSound.play();
+        cSound.currentTime = 0;
+        RenderNsentence();
+    }
 });
 
 // これからリンク先のcontentの中身を取得したい/ 
@@ -83,7 +113,7 @@ async function RenderNsentence(){
 
 
 let startTime;
-let originTime = 10;
+let originTime = 30;
 function StartTimer(){
     timer.innerText = originTime; //表示時間の初期値
     startTime = new Date; //開始時刻の取得
