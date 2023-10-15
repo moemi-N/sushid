@@ -11,7 +11,7 @@ function GetRsentence(){
         // fetchでデータを取ると、返り値としてPromiseを返す
     return fetch(RANDOM_SENTENCE_URL_API)
     .then((response) => response.json()) //変数responseをjson形式に変更
-    .then((data) => console.log(data.content));//dataにプロミス後のAPIの中のcontentをいれる
+    .then((data) => data.content);//dataにプロミス後のAPIの中のcontentをいれる
     
 }
 
