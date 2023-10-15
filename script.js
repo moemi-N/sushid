@@ -20,10 +20,13 @@ typeInput.addEventListener("input", () => {
 
     // sentenceArrayとarraayValueを１つずつ比較⇒色付ける
     sentenceArray.forEach((characterSpan, index) =>{
-        if(characterSpan.innerText == arrayValue[index]){
-        characterSpan.classList.add("correct");
-        characterSpan.classList.remove("incorrect");           
-        }else{
+        if ((arrayValue[index] == null)){
+            characterSpan.classList.remove("incorrect"); 
+            characterSpan.classList.remove("correct");
+        }else if (characterSpan.innerText == arrayValue[index]){
+            characterSpan.classList.add("correct");
+            characterSpan.classList.remove("incorrect");           
+        } else {
             characterSpan.classList.add("incorrect");
             characterSpan.classList.remove("correct");
         }
