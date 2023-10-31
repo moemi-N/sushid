@@ -35,7 +35,8 @@ body {
     /* フォントの太さ */
     font-weight: 600;
     /* 文字と枠の間にスペースが生まれた */
-    padding :    4rem ;
+    padding : 5%;
+
     /* 枠の4隅が丸くなった。 */
     border-radius: 0.5rem;
     width: 1000px;
@@ -50,7 +51,7 @@ body {
 /* テキストエリアの設定 */
 .content .answer {
     /* 空間 */
-    margin-top: 4rem;
+    margin-top: 1rem;
     font-size:  3rem;
 }
 
@@ -62,8 +63,12 @@ body {
     font-size: 5rem;
     font-weight: bold;
     color: rgb(217, 246, 1);
+    margin-bottom: 4rem;
+    padding:0 0 1em;
 }
 .type-display {
+    padding: 1rem 0 0 0;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
 }

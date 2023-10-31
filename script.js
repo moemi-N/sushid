@@ -12,7 +12,6 @@ const typeSound = new Audio("./audio/typing-sound.mp3");
 const cSound = new Audio("./audio/correct.mp3");
 const wSound = new Audio("./audio/wrong.mp3");
 
-
 // 一文字ごとの正誤判定を行う
 // addEventListener:ターゲットに特定のイベントが配信されるたびに呼び出される関数を設定
 typeInput.addEventListener("input", () => {
@@ -136,7 +135,7 @@ function TimeUp(){
 RenderNsentence();
 
 // 持ってきた文章を分解して、１文字ずつspanタグを設定
-// 正誤判定に利用
+// 正誤判定に使用
 
 
 
