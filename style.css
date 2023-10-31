@@ -45,7 +45,7 @@ body {
     max-width: 90%;
     /* /* offset-x | offset-y | blur-radius | spread-radius | color */ */
     box-shadow: 5px 1px 1px  rgb(234, 239, 245);
-    color:rgba(234, 241, 241, 0.942);
+    color:rgb(234, 241, 241, 0.942);
 }
 
 /* テキストエリアの設定 */
